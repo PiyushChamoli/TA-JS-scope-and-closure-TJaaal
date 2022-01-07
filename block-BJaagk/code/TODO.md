@@ -50,12 +50,13 @@ let percentage = (marks, total) => (marks * 100) / total;
 ```
 
 3. Why is a function definition an expression in JavaScript? Give one example of function expression.
-    
-    Expression is something that resolves into a value. As in JS function is an Object and an Object can be stoerd in a variable so function definition is an expression.
+
+    // numbers, string, undefined, boolean, object
+    Expression is something that resolves into a value. As in JS function is an Object and an Object is a type of a value so function definition is an expression.
 
 4. Why is a function call an expression in JavaScript?
 
-
+    Afunction always returns something. If it has return keyword it will return some value otherwise it will return undefined which is also a value so function call is an expression.
 
 5. Write VALID and INVALID next to each example below with the reason.
 
@@ -76,6 +77,9 @@ five = function () {
 
 7. What is the similarities between function definition and function call?
 
+    Function Definition is an expression (Function is an object)
+    Function Call is an expresssion (Function call always returns a value)
+
 8. Is the code below valid or invalid. Explain with reason.
 
 ```js
@@ -88,7 +92,7 @@ hello.user = 'Sam'; // valid
 
 9. What is higher order function explain with an example.
 
-    A function that accepts another function as a parameter or returns a function is higher order function.
+    A function that accepts another function definition as a parameter or returns a function definition is higher order function.
 
 10. Explain what is callback function. Why you can pass a function inside a function?
 
