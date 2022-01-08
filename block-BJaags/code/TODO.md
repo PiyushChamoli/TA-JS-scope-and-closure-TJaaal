@@ -15,6 +15,8 @@ let hundred = square(10);
 console.log(hundred);
 ```
 
+.[./IMG_4064.jpg]
+
 Create the execution context diagram of the following code line by line.
 
 ```js
@@ -26,6 +28,7 @@ var five = addFive(0);
 var ten = addFive(5);
 console.log(five, ten);
 ```
+.[./IMG_4064.jpg]
 
 Create the execution context diagram of the following code line by line.
 
@@ -41,6 +44,7 @@ function multiplyArrayByN(arr, n) {
 
 let numbers = multiplyArrayByN(marks);
 ```
+.[./IMG_4064.jpg]
 
 Create the execution context diagram of the following code line by line.
 
