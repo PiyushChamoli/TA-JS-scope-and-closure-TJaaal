@@ -66,7 +66,7 @@ if (true) {
 }
 console.log(username); // output
 ```
-    Error: Username has already been defined.
+    Output: John
 
 7. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -78,7 +78,7 @@ function sayHello() {
 sayHello();
 console.log(username); // output
 ```
-    Error: Username has already been defined.
+    Output: John
 
 8. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
