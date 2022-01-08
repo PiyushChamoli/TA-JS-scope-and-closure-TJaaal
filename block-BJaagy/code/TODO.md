@@ -13,7 +13,10 @@ numberMultiplyBy5(10, multiplyBy5)
 2. Create a function by you choice that returns a function reference.
 
 ```js
-
+function outer () {
+  function inner(num) {return num+1};
+  return inner;
+}
 ```
 
 3. Create a higher order function called `map` that takes two inputs:
