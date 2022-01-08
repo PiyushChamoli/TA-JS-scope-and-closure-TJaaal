@@ -19,7 +19,7 @@ console.log(species); // 2
 
 <!-- Put your image below -->
 
-![](./img/image-name.jpg)
+![](./images/IMG_4062.jpg)
 
 - Create the execution context diagram
 - What will be the value of species on 1 and 2
@@ -47,7 +47,7 @@ topLevelFn();
 
 <!-- Put your image below -->
 
-![](./img/image-name.jpg)
+![](./images/IMG_4063.jpg)
 
 - Create the execution context diagram
 - What will be the value of 1 and 2
