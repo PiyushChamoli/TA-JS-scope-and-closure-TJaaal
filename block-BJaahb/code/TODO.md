@@ -11,8 +11,10 @@ function outer() {
 }
 let getSum = outer();
 let num = getSum();
-```
 
+    [./hb-first.png]
+
+```
 2.
 
 Create the execution context diagram for following code. Also write the output of the code below.
@@ -28,10 +30,13 @@ function getCounter() {
 
 let counter = getCounter();
 
-counter(); // output
-counter(); // output
-counter(); // output
-counter(); // output
+counter(); // output 0
+counter(); // output 1
+counter(); // output 2
+counter(); // output 3
+
+    [./hb-two.png]
+
 ```
 
 3. Create the execution context diagram
