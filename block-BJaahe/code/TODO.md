@@ -105,9 +105,9 @@ manager('Head'); // Head Manager
 ```js
 function changeSalary(n) {
   return {
-    raise: () => n+500,
-    lower: () => n-500,
-    current: () => n
+    raise() {return n+500},
+    lower() {return n-500},
+    current() {return n}
   }
 }
 
@@ -129,14 +129,14 @@ function nameFactory (fn,ln) {
   let firstName = fn;
   let lastName = ln;
   return {
-    getFullName: function() {
+    getFullName() {
       return `${firstName} ${lastName}`
     },
-    setFirstName: function(updatefn) {
+    setFirstName(updatefn) {
       firstName = update;
       return `${firstName} ${lastName}`;
     },
-    setLastName: function(updateln) {
+    setLastName(updateln) {
       lastName = updateln;
       return `${firstName} ${lastName}`;
     }
