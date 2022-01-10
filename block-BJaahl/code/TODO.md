@@ -51,7 +51,7 @@ function once(cb, ...param) {
   return function () {
     if (!call) {
       call = true;
-      cb(param);
+      cb(...param);
     }
   }
 }
@@ -66,7 +66,15 @@ log(); // return undefinde (can't be called twice)
 
 ```js
 function nTimes(cb, times, ...rest) {
-  // your code goes here
+  let noOfTimesCalled = 0;
+  return function () {
+    if (noOfTimesCalled >= times) {
+      return;
+    } else {
+      cb(...rest);
+      noOfTimesCalled += 1;
+    }
+  }
 }
 
 // TEST
