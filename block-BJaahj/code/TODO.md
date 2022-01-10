@@ -13,6 +13,15 @@ function objOfMatches(array1, array2, callback) {
   return final;
 }
 
+function objOfMatches(array1, array2, callback) {
+  return array1.reduce((acc,cv,index) => {
+    if (array2[index] === callback(cv)) {
+      acc[cv] = array2[index];
+    }
+    return acc;
+  }, {})
+}
+
 // TEST
 console.log(
   objOfMatches(
@@ -38,6 +47,14 @@ function multiMap(arrVals, arrCallbacks) {
     final[elm] = elmArr;
   }
   return final;
+}
+
+function multiMap(arrVals, arrCallbacks) {
+  return arrVals.reduce((acc,cv) => {
+    let valArr = arrCallbacks.map(fn => fn(cv));
+    acc[cv] = valArr;
+    return acc;
+  }, {})
 }
 
 // TEST
@@ -80,6 +97,16 @@ function objOfMatchesWithArray(array1, array2, callback) {
   return final;
 }
 
+function objOfMatchesWithArray(array1, array2, callback) {
+  return array1.reduce((acc,cv,index) => {
+    let val = callback.reduce((acc,fn) => fn(acc), cv);
+    if (val === array2[index]) {
+      acc[cv] = array2[index];
+    }
+    return acc;
+  }, {})
+}
+
 // TEST
 console.log(
   objOfMatchesWithArray(
@@ -119,6 +146,13 @@ function objOfMatchesWithArray(array1, array2) {
     final[elm] = finalElmArr;
   }
   return final;
+}
+
+function objOfMatchesWithArray(array1, array2) {
+  array1.reduce((acc,cv,index) => {
+    acc[cv] = array2.map(fn => fn(cv));
+    return acc;
+  }, {})
 }
 
 // TEST
@@ -167,6 +201,16 @@ function schedule(fnArr,secArr) {
   } else {
     fnArr.forEach((fn,i) => setTimeout(fn,secArr[i]*1000));
   }
+}
+
+function schedule(fnArr,secArr) {
+  if (fnArr !== secArr) {
+    alert('Invalid Output');
+    return;
+  } 
+  fnArr.forEach((fn,i) => {
+    setTimeout(fn, secArr[i]*1000);
+  })
 }
 
 function sayHi() {
