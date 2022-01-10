@@ -6,7 +6,14 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 
 ```js
 function censor(fromWord, toWord) {
-  //  Your code goes here
+  return function (sentence) {
+    sentenceSplit = sentence.split(' ');
+    if (sentenceSplit.includes(fromWord)) {
+      let index = sentenceSplit.findIndex(elm => elm === fromWord);
+      sentenceSplit[index] = toWord
+    };
+    return sentenceSplit.join(' ');
+  }
 }
 
 let censorSentence = censor('World', 'Sam');
@@ -25,7 +32,21 @@ The returned function either accepts two parameter or one parameter.
 
 ```js
 function multipleCensor() {
-  //  Your code goes here
+  return function (firstWord,secondWord) {
+    let replace = {};
+    if (secondWord) {
+      replace[firstWord] = secondWord;
+      return;
+    }
+    return replace;
+    let sentenceSplit = firstWord.split(' ');
+    sentenceSplit = sentenceSplit.map((word,index) => {
+      if (replace[word]) {
+        sentenceSplit[index] = replace[word];
+      }
+    });
+    return sentenceSplit;
+  }
 }
 
 let censorQuote = multipleCensor();
@@ -49,8 +70,17 @@ The returned function accepts one parameter.
 - If the parameter is the same as the password it will return the object in which we stored the values.
 
 ```js
-function createCache() {
-  // Your code goes here
+function createCache(cb,str) {
+  let obj = {};
+  return function (param) {
+    if (param !== str) {
+      obj[param] = cb(param);
+      return cb(param);
+    } 
+    if (param === str) {
+      return obj;
+    }
+  }
 }
 
 function add10(num) {
@@ -69,8 +99,21 @@ addCache('foo'); // {12: 22, 100: 110, 1: 11}
 4. Change the above function in such a way that when the returned function is called with any other value than password. It should first check the object where we are storing the argument and return value. If the key is present return the value form the object itself. Otherwise call the callback function with the parameter.
 
 ```js
-function createCache() {
-  // Your code goes here
+function createCache(cb,str) {
+  let obj = {};
+  return function (param) {
+    if (param !== str) {
+      if (obj[param]) {
+        return obj[param];
+      } else {
+        obj[param] = cb(param);
+        return cb(param);
+      }
+    } 
+    if (param === str) {
+      return obj;
+    }
+  }
 }
 
 function add10(num) {
