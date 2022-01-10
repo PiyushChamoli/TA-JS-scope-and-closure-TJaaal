@@ -2,10 +2,10 @@
 
 ```js
 function intersection(...arrays) {
-  return arrays.reduce((acc,arr,index) => {
-    acc.concat(arr);
+  return arrays.reduce((acc,cv) => {
+    acc = acc.filter(elm => cv.includes(elm));
     return acc;
-  }, [])
+  })
 }
 
 // Test
@@ -22,14 +22,10 @@ console.log(
 
 ```js
 function union(...arrays) {
-  return arrays.reduce((acc,arr) => {
-    arr.forEach(elm => {
-      if (!acc.includes(elm)) {
-        acc.push(elm);
-      }
-    });
+  return arrays.reduce((acc,cv) => {
+    acc = acc.filter(elm => !cv.includes(elm)).concat(cv);
     return acc;
-  }, [])
+  })
 }
 
 // Test
