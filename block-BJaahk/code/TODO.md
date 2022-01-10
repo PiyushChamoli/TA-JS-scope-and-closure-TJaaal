@@ -10,9 +10,15 @@ function censor(fromWord, toWord) {
     sentenceSplit = sentence.split(' ');
     if (sentenceSplit.includes(fromWord)) {
       let index = sentenceSplit.findIndex(elm => elm === fromWord);
-      sentenceSplit[index] = toWord
+      sentenceSplit[index] = toWord;
     };
     return sentenceSplit.join(' ');
+  }
+}
+
+function censor(fromWord, toWord) {
+  return function (sentence) {
+    return sentence.replace(fromWord, toWord);
   }
 }
 
@@ -31,21 +37,39 @@ The returned function either accepts two parameter or one parameter.
 - When you pass one parameter it should return a string with words replaced with the required words.
 
 ```js
+// function multipleCensor() {
+//   return function (firstWord,secondWord) {
+//     let replace = {};
+//     if (secondWord) {
+//       replace[firstWord] = secondWord;
+//       return;
+//     }
+//     return replace;
+//     let sentenceSplit = firstWord.split(' ');
+//     sentenceSplit = sentenceSplit.map((word,index) => {
+//       if (replace[word]) {
+//         sentenceSplit[index] = replace[word];
+//       }
+//     });
+//     return sentenceSplit;
+//   }
+// }
+
+
 function multipleCensor() {
-  return function (firstWord,secondWord) {
-    let replace = {};
-    if (secondWord) {
-      replace[firstWord] = secondWord;
-      return;
+  let words = [];
+  return function (...params) {
+    if (params.length === 1) {
+      let quote = params[0];
+      words.forEach(pair => {
+        quote = quote.replace(pair[0],pair[1]);
+      });
+      return quote;
+    } else if (params.length === 2) {
+      words.push(params);
+    } else {
+      console.log('Invalid Parameters')
     }
-    return replace;
-    let sentenceSplit = firstWord.split(' ');
-    sentenceSplit = sentenceSplit.map((word,index) => {
-      if (replace[word]) {
-        sentenceSplit[index] = replace[word];
-      }
-    });
-    return sentenceSplit;
   }
 }
 
